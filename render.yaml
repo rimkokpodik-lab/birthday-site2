@@ -1,0 +1,25 @@
+# Готовый деплой на Render (https://render.com) — бесплатный тариф.
+#
+# 1) Загрузите проект в GitHub
+# 2) render.com → New + → Blueprint → выберите репозиторий
+# 3) Render прочитает этот файл и создаст сайт
+#
+# Пароль кабинета задаётся ниже в ADMIN_PASSWORD — поменяйте на свой.
+# Если готовы платить ~$7/мес: смените plan на starter, добавьте блок disk
+# (mountPath: /var/data, sizeGB: 1) — тогда файлы студентов будут храниться постоянно.
+services:
+  - type: web
+    name: birthday-inbox
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.1
+      - key: ADMIN_PASSWORD
+        value: urok2026
+      - key: SCHOOL_NAME
+        value: Моя школа

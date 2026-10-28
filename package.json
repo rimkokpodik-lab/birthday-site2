@@ -1,0 +1,13 @@
+{
+  "name": "birthday-site",
+  "version": "1.0.0",
+  "description": "Сайт для сбора дней рождения учеников",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "license": "MIT"
+}
